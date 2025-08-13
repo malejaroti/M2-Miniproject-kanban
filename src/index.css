@@ -12,3 +12,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: fit-content;
+  border: 1px solid white;
+}
+
+.main-page {
+  display: flex;
+  gap: 2rem;
+}
+
+.dashboard {
+  display: flex;
+  color: black;
+  background-color: gray;
+}
+
+.btn-delete {
+  width: fit-content;
+}
