@@ -3,7 +3,6 @@ function ListItem({task}) {
     <>
         <div className="card">
             <p>{task.title}</p>
-            <p>{task.description}</p>
             <p>{task.assigenee}</p>
             <p>{task.status === "Done"? "✔️":"❌"}</p>
             
