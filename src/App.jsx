@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router"
 import Footer from "./components/Footer"
+import List from "./components/List"
 import Navbar from "./components/Navbar"
 import Sidebar from './components/Sidebar'
 import About from "./pages/About"
