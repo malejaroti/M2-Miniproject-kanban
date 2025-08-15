@@ -1,17 +1,13 @@
-import tasks from "../assets/data.json"
-import ListItem from "./Listitem"
+import ListItem from "./Listitem";
 
-
-function List() {
+function List({ allTasks }) {
+  console.log(allTasks);
   return (
     <div>
-        {
-            tasks.map(task => (
-                <ListItem task={task} key={task.id}/>
-            ))
-        }
-
+      {allTasks.map((task) => (
+        <ListItem task={task} key={task.id} />
+      ))}
     </div>
-  )
+  );
 }
-export default List
+export default List;

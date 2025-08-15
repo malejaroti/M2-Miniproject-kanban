@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../node_modules/flowbite-datepicker";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -21,8 +23,6 @@
   height: fit-content;
   border: 1px solid white;
 }
-
-
 
 .btn-delete {
   width: fit-content;
