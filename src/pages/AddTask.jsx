@@ -1,8 +1,8 @@
 import TaskForm from "../components/TaskForm";
 
-function AddTask({ allTasks, setAllTasks }) {
+function AddTask({ setAllTasks }) {
   const initialData = {
-    id: new Date().getTime(),
+    id: new Date().getTime().toString(),
     title: "",
     description: "",
     assignee: "",
@@ -12,14 +12,13 @@ function AddTask({ allTasks, setAllTasks }) {
     createdDate: new Date().toISOString().slice(0, 10),
   };
   const addNewTask = (newTask) => {
-    console.log(newTask);
     setAllTasks((allTasks) => [...allTasks, newTask]);
   };
 
   return (
     <div className="text-slate-600">
       <span className="text-2xl text-cyan-600">Add a new task</span>
-      <TaskForm data={initialData} callback={addNewTask} />
+      <TaskForm data={initialData} callback={addNewTask} actionText={"Add task"} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function TaskForm({ data, callback }) {
+function TaskForm({ data, callback, actionText }) {
   const [formData, setFormData] = useState({
     title: data.title,
     description: data.description,
@@ -67,7 +67,7 @@ function TaskForm({ data, callback }) {
           </label>
 
           <button className="bg-slate-300 p-5 text-black" type="submit">
-            Submit
+            {actionText}
           </button>
         </div>
       </form>

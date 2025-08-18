@@ -1,4 +1,4 @@
-import ListItem from "./Listitem";
+import ListItem from "./ListItem";
 
 function List({ allTasks }) {
   return (
