@@ -1,10 +1,10 @@
-import List from "../components/List"
+import List from "../components/List";
 
-function Dashboard() {
+function Dashboard({ allTasks }) {
   return (
     <div>
-      <List />
+      <List allTasks={allTasks} />
     </div>
-  )
+  );
 }
-export default Dashboard
+export default Dashboard;
