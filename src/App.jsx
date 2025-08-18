@@ -11,10 +11,10 @@ import TaskDetails from "./pages/TaskDetails";
 import Dashboard from "./pages/Dashboard";
 import AddTask from "./pages/AddTask";
 import { useState } from "react";
+import EditTask from "./pages/EditTask";
 
 function App() {
   const [allTasks, setAllTasks] = useState(tasks);
-  console.log(allTasks);
 
   return (
     <div className="min-h-screen flex-col">
@@ -27,6 +27,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/task-details/:task-id" element={<TaskDetails />} />
             <Route path="/add-task" element={<AddTask setAllTasks={setAllTasks} />} />
+            <Route path="/edit-task/:task-id" element={<EditTask allTasks={allTasks} setAllTasks={setAllTasks} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
