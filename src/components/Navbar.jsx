@@ -1,9 +1,9 @@
-import logo from "../assets/react.svg";
+import logo from "../assets/taskIcon.png";
 function Navbar() {
   return (
-    <div className="h-[5vh] flex py-5 justify-center gap-10 bg-blue-900">
-      <img src={logo} alt="Logo" />
-      <div className="app-name">Kanban project</div>
+    <div className="h-[7vh] flex justify-center items-center gap-10 bg-blue-900">
+      <img src={logo} alt="Logo" width="40px"/>
+      <div className="app-name font-extrabold italic underline underline-offset-2 text-4xl">Kanban project</div>
     </div>
   );
 }

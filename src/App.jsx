@@ -21,7 +21,7 @@ function App() {
       <Navbar />
       <div className="main-page h-auto flex flex-1 ">
         <Sidebar />
-        <div className="inner-page p-5 h-100">
+        <div className="inner-page p-5 w-full">
           <Routes>
             <Route path="/" element={<Dashboard allTasks={allTasks} />} />
             <Route path="/about" element={<About />} />

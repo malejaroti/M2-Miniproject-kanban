@@ -3,14 +3,14 @@ import { Link } from "react-router";
 function ListItem({ task }) {
   return (
     <>
-      <div className="card">
-        <p>{task.title}</p>
-        <p>{task.assignee}</p>
+      <div className="card rounded-2xl my-5 p-2 bg-indigo-900 border-2 border-indigo-600">
+        <p className="text-lg font-extrabold">{task.title}</p>
+        <p className="text-base">{task.assignee}</p>
         <p>{task.status === "Done" ? "✔️" : "❌"}</p>
         <Link to={`/edit-task/${task.id}`}>
-          <button className="btn-edit border-2">Edit task</button>
+          <button className="btn-edit border-2 cursor-pointer">Edit task</button>
         </Link>
-        <button className="btn-delete border-2">Delete</button>
+        <button className="btn-delete border-2 p-2 rounded-lg bg-rose-900 mx-5 cursor-pointer">Delete</button>
       </div>
     </>
   );
