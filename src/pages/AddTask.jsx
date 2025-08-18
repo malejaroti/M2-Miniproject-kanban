@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 function AddTask({ setAllTasks }) {
@@ -6,7 +7,7 @@ function AddTask({ setAllTasks }) {
   const [assignee, setAssignee] = useState("");
   const [status, setStatus] = useState("To Do");
   const [priority, setPriority] = useState("");
-  const [dueDate, setDueDate] = useState({});
+  const [dueDate, setDueDate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +21,7 @@ function AddTask({ setAllTasks }) {
     setAssignee("");
     setStatus("To Do");
     setPriority("");
-    setDueDate({});
+    setDueDate("");
   };
 
   return (
@@ -50,7 +51,7 @@ function AddTask({ setAllTasks }) {
           </label>
           <label>
             Due Date
-            <input name="dueDate" type="text" placeholder="Due date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+            <input datepicker="" name="dueDate" type="text" placeholder="Due date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
           </label>
 
           <button className="bg-slate-300 p-5 text-black" type="submit">
