@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -21,8 +25,6 @@
   height: fit-content;
   border: 1px solid white;
 }
-
-
 
 .btn-delete {
   width: fit-content;
