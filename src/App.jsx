@@ -26,7 +26,7 @@ function App() {
             <Route path="/" element={<Dashboard allTasks={allTasks} />} />
             <Route path="/about" element={<About />} />
             <Route path="/task-details/:task-id" element={<TaskDetails />} />
-            <Route path="/add-task" element={<AddTask setAllTasks={setAllTasks} />} />
+            <Route path="/add-task" element={<AddTask allTasks={allTasks} setAllTasks={setAllTasks} />} />
             <Route path="/edit-task/:task-id" element={<EditTask allTasks={allTasks} setAllTasks={setAllTasks} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
