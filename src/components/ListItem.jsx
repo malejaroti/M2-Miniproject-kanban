@@ -3,7 +3,7 @@ import { Link } from "react-router";
 function ListItem({ task }) {
   return (
     <>
-      <div className="card rounded-2xl my-5 p-2 bg-indigo-900 border-2 border-indigo-600">
+      <div className="card w-full rounded-2xl my-3 p-3 bg-indigo-900 border-2 border-indigo-600">
         <p className="text-lg font-extrabold">{task.title}</p>
         <p className="text-base">{task.assignee}</p>
         <p>{task.status === "Done" ? "✔️" : "❌"}</p>
@@ -16,4 +16,3 @@ function ListItem({ task }) {
   );
 }
 export default ListItem;
- 
