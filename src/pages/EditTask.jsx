@@ -15,10 +15,11 @@ function EditTask({ allTasks, setAllTasks }) {
       })
     );
   };
+
   return (
     <div>
-      <span className="text-2xl">Edit task</span>
-      <TaskForm data={task} callback={updateTask} actionText={"Edit task"}/>
+      <span className="text-2xl text-sky-500 font-extrabold">Edit task</span>
+      <TaskForm data={task} onSubmit={updateTask} actionText={"Edit task"}/>
     </div>
   );
 }

@@ -10,7 +10,7 @@ function ListItem({ task }) {
         <Link to={`/edit-task/${task.id}`}>
           <button className="btn-edit border-2 cursor-pointer">Edit task</button>
         </Link>
-        <button className="btn-delete border-2 p-2 rounded-lg bg-rose-900 mx-5 cursor-pointer">Delete</button>
+        <button className="btn-delete border-2 p-2 rounded-lg bg-rose-900 mx-5 cursor-pointer shadow-md shadow-rose-800 hover:relative hover:top-0.5 hover:left-0.5">Delete</button>
       </div>
     </>
   );

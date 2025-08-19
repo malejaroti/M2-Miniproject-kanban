@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function TaskForm({ data, callback, actionText }) {
+function TaskForm({ data, onSubmit, actionText }) {
   const [formData, setFormData] = useState({
     title: data.title,
     description: data.description,
@@ -33,40 +33,40 @@ function TaskForm({ data, callback, actionText }) {
       createdDate: formData.createdDate
     };
 
-    callback(task);
+    onSubmit(task);
     navigate("/");
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="text-red-600 border-2">
-        <div>
-          <label className="block w-200">
-            Task title
-            <input className="w-200" name="title" type="text" placeholder="Title" value={formData.title} onChange={handleChange} />
+      <form onSubmit={handleSubmit} className="border-5 flex flex-col p-5 mt-5">
+        <div className="text-sky-500">
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Task title</p>
+            <input className="w-full font-medium text-sky-700" name="title" type="text" placeholder="Title" value={formData.title} onChange={handleChange} />
           </label>
-          <label className="block w-200">
-            Description
-            <input className="w-200" name="description" type="text" placeholder="Description" value={formData.description} onChange={handleChange} />
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Description</p>
+            <textarea className="w-full font-medium text-sky-700" name="description" type="text" placeholder="Description" value={formData.description} onChange={handleChange} />
           </label>
-          <label className="block w-200">
-            Assignee
-            <input className="w-200" name="assignee" type="text" placeholder="Assignee name" value={formData.assignee} onChange={handleChange} />
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Assignee</p>
+            <input className="w-full font-medium text-sky-700" name="assignee" type="text" placeholder="Assignee name" value={formData.assignee} onChange={handleChange} />
           </label>
-          <label className="block w-200">
-            Status
-            <input className="w-200" name="status" type="text" placeholder="Status" value={formData.status} onChange={handleChange} />
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Status</p>
+            <input className="w-full font-medium text-sky-700" name="status" type="text" placeholder="Status" value={formData.status} onChange={handleChange} />
           </label>
-          <label className="block w-200">
-            Priority
-            <input className="w-200" name="priority" type="text" placeholder="Priority" value={formData.priority} onChange={handleChange} />
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Priority</p>
+            <input className="w-full font-medium text-sky-700" name="priority" type="text" placeholder="Priority" value={formData.priority} onChange={handleChange} />
           </label>
-          <label className="block w-200">
-            Due Date
-            <input className="w-200" datepicker="" name="dueDate" type="text" placeholder="Due date" value={formData.dueDate} onChange={handleChange} />
+          <label className="flex items-center flex-none my-5 w-1/2 font-bold">
+            <p className="w-1/6 text-end mr-5">Due Date</p>
+            <input className="w-full font-medium text-sky-700" datepicker="" name="dueDate" type="text" placeholder="Due date" value={formData.dueDate} onChange={handleChange} />
           </label>
 
-          <button className="bg-slate-300 p-5 text-black" type="submit">
+          <button className="bg-sky-800 m-5 p-5 rounded-t-lg text-sky-400 cursor-pointer shadow-md shadow-sky-600 hover:relative hover:top-0.5 hover:left-0.5" type="submit">
             {actionText}
           </button>
         </div>
