@@ -10,7 +10,7 @@ function TaskForm({ data, onSubmit, actionText, assignees, priorities, statuses 
     status: data.status,
     priority: data.priority,
     dueDate: new Date(data.dueDate),
-    createdDate: new Date(data.createdDate), // todo: To clarify
+    createdDate: new Date(data.createdDate),
   });
   let navigate = useNavigate();
 
@@ -71,8 +71,6 @@ function TaskForm({ data, onSubmit, actionText, assignees, priorities, statuses 
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Due Date</p>
             <Datepicker value={formData.dueDate} onChange={handleChange} />
-            {/* <input className="w-full font-medium text-sky-700" name="dueDate" type="date" placeholder="Due date" value={formData.dueDate} onChange={handleChange} /> */}
-            {/* <input id="datepicker" className="w-full font-medium text-sky-700" datepicker="" name="dueDate" type="date" placeholder="Due date" value={formData.dueDate} onChange={handleChange} /> */}
           </label>
 
           <button className="bg-sky-800 m-5 p-5 rounded-t-lg text-sky-400 cursor-pointer shadow-md shadow-sky-600 hover:relative hover:top-0.5 hover:left-0.5" type="submit">

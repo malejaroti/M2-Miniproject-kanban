@@ -1,6 +1,6 @@
 import ListItem from "./ListItem";
 
-function List({ allTasks, statusFilter }) {
+function List({ allTasks }) {
   return (
     <div className="list-container w-full p-2">
       <div className="w-full max-w-3xl mx-auto">
