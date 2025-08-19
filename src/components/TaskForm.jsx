@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function TaskForm({ data, onSubmit, actionText }) {
+function TaskForm({ data, onSubmit, actionText, assignees, priorities, statuses }) {
   const [formData, setFormData] = useState({
     title: data.title,
     description: data.description,
@@ -51,15 +51,21 @@ function TaskForm({ data, onSubmit, actionText }) {
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Assignee</p>
-            <input className="w-full font-medium text-sky-700" name="assignee" type="text" placeholder="Assignee name" value={formData.assignee} onChange={handleChange} />
+            <select className="w-full font-medium text-sky-700" name="assignee" type="text" placeholder="Assignee name" value={formData.assignee} onChange={handleChange}>
+              {Array.from(assignees).map(assignee => <option value={assignee} >{assignee}</option>)}
+            </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Status</p>
-            <input className="w-full font-medium text-sky-700" name="status" type="text" placeholder="Status" value={formData.status} onChange={handleChange} />
+            <select className="w-full font-medium text-sky-700" name="status" type="text" placeholder="Status" value={formData.status} onChange={handleChange} >
+              {Array.from(statuses).map(status => <option value={status} >{status}</option>)}
+            </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Priority</p>
-            <input className="w-full font-medium text-sky-700" name="priority" type="text" placeholder="Priority" value={formData.priority} onChange={handleChange} />
+            <select className="w-full font-medium text-sky-700" name="priority" type="text" placeholder="Priority" value={formData.priority} onChange={handleChange} >
+              {Array.from(priorities).map(priority => <option value={priority} >{priority}</option>)}
+            </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Due Date</p>

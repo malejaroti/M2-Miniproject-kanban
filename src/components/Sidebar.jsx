@@ -7,6 +7,9 @@ function Sidebar() {
         <Link to={"/"}>
           <li className="py-3 px-5 bg-indigo-700 text-indigo-100 rounded-2xl">Home</li>
         </Link>
+        <Link to={"/edit-values"}>
+          <li className="py-3 px-5 bg-indigo-700 text-indigo-100 rounded-2xl">Values</li>
+        </Link>
         <Link to={"/about"}>
           <li className="py-3 px-5 bg-indigo-700 text-indigo-100 rounded-2xl">About</li>
         </Link>

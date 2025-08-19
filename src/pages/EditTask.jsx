@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import TaskForm from "../components/TaskForm";
 
-function EditTask({ allTasks, setAllTasks }) {
+function EditTask({ allTasks, setAllTasks, assignees, priorities, statuses }) {
   const allParams = useParams();
   const task_id = allParams["task-id"];
   // console.log(allParams, allTasks);
@@ -19,7 +19,7 @@ function EditTask({ allTasks, setAllTasks }) {
   return (
     <div>
       <span className="text-2xl text-sky-500 font-extrabold">Edit task</span>
-      <TaskForm data={task} onSubmit={updateTask} actionText={"Edit task"}/>
+      <TaskForm data={task} onSubmit={updateTask} actionText={"Edit task"} assignees={assignees} priorities={priorities} statuses={statuses}/>
     </div>
   );
 }
