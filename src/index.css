@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "flowbite/src/themes/default";
-@plugin "flowbite/plugin";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 @source "../node_modules/flowbite";
 
 :root {
@@ -18,14 +18,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: fit-content;
-  border: 1px solid white;
-}
-
-.btn-delete {
-  width: fit-content;
+@layer utilities {
+  @keyframes text {
+    0%,
+    100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+  .animate-text {
+    animation: text 2s ease infinite;
+  }
 }
