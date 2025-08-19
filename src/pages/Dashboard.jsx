@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import List from "../components/List";
 import Column from "../components/Column";
 
-function Dashboard({ allTasks }) {
+function Dashboard({ allTasks, setAllTasks }) {
   return (
     <div className="dashboard flex h-full flex-col">
       <Link to="/add-task" className="self-end">
@@ -10,14 +10,14 @@ function Dashboard({ allTasks }) {
       </Link>
 
       <div className="columns-container h-9/10 flex flex-1 max-h-160 gap-6 mt-2">
-        <Column columnName={"To-Do"}>
-          <List allTasks={allTasks} statusFilter={"To Do"} />
+        <Column columnName={"To-Do"} allTasks={allTasks} setAllTasks={setAllTasks}>
+          <List allTasks={allTasks.filter((task) => task.status === "To Do")} />
         </Column>
-        <Column columnName={"Doing"}>
-          <List allTasks={allTasks} statusFilter={"In Progress"} />
+        <Column columnName={"Doing"} allTasks={allTasks} setAllTasks={setAllTasks}>
+          <List allTasks={allTasks.filter((task) => task.status === "In Progress")} />
         </Column>
-        <Column columnName={"Done"}>
-          <List allTasks={allTasks} statusFilter={"Done"} />
+        <Column columnName={"Done"} allTasks={allTasks} setAllTasks={setAllTasks}>
+          <List allTasks={allTasks.filter((task) => task.status === "Done")} />
         </Column>
       </div>
     </div>

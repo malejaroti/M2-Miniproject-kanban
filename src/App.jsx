@@ -19,11 +19,11 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-  <div className="main-page h-auto flex flex-1 min-h-0">
+      <div className="main-page h-auto flex flex-1 min-h-0">
         <Sidebar />
         <div className="inner-page bg-neutral-900 p-5 w-full min-h-0">
           <Routes>
-            <Route path="/" element={<Dashboard allTasks={allTasks} />} />
+            <Route path="/" element={<Dashboard allTasks={allTasks} setAllTasks={setAllTasks} />} />
             <Route path="/about" element={<About />} />
             <Route path="/task-details/:task-id" element={<TaskDetails />} />
             <Route path="/add-task" element={<AddTask allTasks={allTasks} setAllTasks={setAllTasks} />} />

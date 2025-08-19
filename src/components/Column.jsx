@@ -1,6 +1,36 @@
-function Column({ columnName, children }) {
+function Column({ columnName, children, allTasks, setAllTasks }) {
+  const handleDragOver = (event) => {
+    event.preventDefault(); //allow drop
+  };
+  const handleDrop = (event) => {
+    event.preventDefault(); //allow drop
+    let nameColumnDropped = event.currentTarget.id; // another option would have been to use event.currentTarget.dataset.columnName
+    console.log("Dropped on column with id: ", nameColumnDropped);
+
+    // event.dataTransfer.setData("text/plain", nameColumnDropped); //todo: Understand if it was possible to instead send the Column name ListItem
+
+    let idTaskDragged = event.dataTransfer.getData("text/plain");
+
+    // Find the task in allTasks
+    let taskDragged = allTasks.find((task) => task.id === idTaskDragged);
+    console.log("Task being moved:", taskDragged);
+    //edit task status
+    if (nameColumnDropped === "To-Do") {
+      taskDragged.status = "To Do";
+    } else if (nameColumnDropped === "Doing") {
+      taskDragged.status = "In Progress";
+    } else if (nameColumnDropped === "Done") {
+      taskDragged.status = "Done";
+    }
+
+    setAllTasks((allTasksState) =>
+      allTasksState.map((eachTask, index) => {
+        return eachTask.id === idTaskDragged ? taskDragged : eachTask;
+      })
+    );
+  };
   return (
-    <div className="group column h-full flex-1 mx-2">
+    <div id={columnName} data-column-name={columnName} className="group column h-full flex-1 mx-2" onDragOver={handleDragOver} onDrop={handleDrop}>
       {/* Gradient border wrapper */}
       <div className="relative h-full rounded-2xl p-[2px] bg-gradient-to-br from-cyan-500/50 via-fuchsia-500/50 to-amber-400/50 transition-colors duration-300 group-hover:from-cyan-400 group-hover:via-fuchsia-400 group-hover:to-amber-300">
         {/* Inner panel */}
