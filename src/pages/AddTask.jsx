@@ -4,7 +4,6 @@ function AddTask({ setAllTasks, assignees, priorities, statuses }) {
   const dueDate = new Date();
   const daysToDueDate = 2;
   dueDate.setDate(dueDate.getDate() + daysToDueDate);
-  console.log(dueDate);
   const initialData = {
     id: new Date().getTime().toString(),
     title: "",
