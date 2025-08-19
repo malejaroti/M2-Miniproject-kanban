@@ -11,10 +11,14 @@ function Dashboard({ allTasks }) {
 
       <div className="columns-container h-9/10 flex flex-1 max-h-160 gap-6 mt-2">
         <Column columnName={"To-Do"}>
-          <List allTasks={allTasks} />
+          <List allTasks={allTasks} statusFilter={"To Do"} />
         </Column>
-        <Column columnName={"Doing"}></Column>
-        <Column columnName={"Done"}></Column>
+        <Column columnName={"Doing"}>
+          <List allTasks={allTasks} statusFilter={"In Progress"} />
+        </Column>
+        <Column columnName={"Done"}>
+          <List allTasks={allTasks} statusFilter={"Done"} />
+        </Column>
       </div>
     </div>
   );

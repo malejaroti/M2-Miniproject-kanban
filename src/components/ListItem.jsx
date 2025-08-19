@@ -6,7 +6,7 @@ function ListItem({ task }) {
       <div className="card w-full rounded-2xl my-3 p-3 bg-indigo-900 border-2 border-indigo-600">
         <p className="text-lg font-extrabold">{task.title}</p>
         <p className="text-base">{task.assignee}</p>
-        <p>{task.status === "Done" ? "✔️" : "❌"}</p>
+        <p className="status-label border-2 bg-blue-600 my-2">{task.status === "Done" ? "Done" : task.status === "In Progress" ? "In Progress" : task.status === "To Do" ? "To Do" : null}</p>
         <Link to={`/edit-task/${task.id}`}>
           <button className="btn-edit border-2 cursor-pointer">Edit task</button>
         </Link>
