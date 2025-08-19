@@ -1,6 +1,9 @@
 import TaskForm from "../components/TaskForm";
 
-function AddTask({ setAllTasks, assignees, priorities, statuses  }) {
+function AddTask({ setAllTasks, assignees, priorities, statuses }) {
+  const dueDate = new Date();
+  dueDate.setDate(dueDate.getDate() + 2);
+  console.log(dueDate);
   const initialData = {
     id: new Date().getTime().toString(),
     title: "",
@@ -8,8 +11,8 @@ function AddTask({ setAllTasks, assignees, priorities, statuses  }) {
     assignee: "",
     status: "To Do",
     priority: "",
-    dueDate: "",
-    createdDate: new Date().toISOString().slice(0, 10),
+    dueDate: dueDate,
+    createdDate: new Date()
   };
 
   const addNewTask = (newTask) => {

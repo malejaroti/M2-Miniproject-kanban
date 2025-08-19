@@ -7,6 +7,7 @@ function EditTask({ allTasks, setAllTasks, assignees, priorities, statuses }) {
   // console.log(allParams, allTasks);
   let taskIndex = allTasks.findIndex((task) => task.id === task_id);
   let task = allTasks[taskIndex];
+  console.log(task);
 
   const updateTask = (updatedTask) => {
     setAllTasks((allTasksState) =>

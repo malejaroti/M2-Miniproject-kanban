@@ -1,3 +1,4 @@
+import { Datepicker } from "flowbite-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -8,15 +9,15 @@ function TaskForm({ data, onSubmit, actionText, assignees, priorities, statuses 
     assignee: data.assignee,
     status: data.status,
     priority: data.priority,
-    dueDate: data.dueDate,
-    createdDate: data.createdDate, // todo: To clarify
+    dueDate: new Date(data.dueDate),
+    createdDate: new Date(data.createdDate), // todo: To clarify
   });
   let navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.type === "checkbox" ? event.target.checked : event.target.value,
+      [event.target !== undefined ? event.target.name : "dueDate"]: event.target === undefined ? event : event.target.value,
     });
   };
   const handleSubmit = (event) => {
@@ -52,24 +53,26 @@ function TaskForm({ data, onSubmit, actionText, assignees, priorities, statuses 
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Assignee</p>
             <select className="w-full font-medium text-sky-700" name="assignee" type="text" placeholder="Assignee name" value={formData.assignee} onChange={handleChange}>
-              {Array.from(assignees).map(assignee => <option value={assignee} >{assignee}</option>)}
+              {Array.from(assignees).map(assignee => <option value={assignee} key={assignee}>{assignee}</option>)}
             </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Status</p>
             <select className="w-full font-medium text-sky-700" name="status" type="text" placeholder="Status" value={formData.status} onChange={handleChange} >
-              {Array.from(statuses).map(status => <option value={status} >{status}</option>)}
+              {Array.from(statuses).map(status => <option value={status} key={status}>{status}</option>)}
             </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Priority</p>
             <select className="w-full font-medium text-sky-700" name="priority" type="text" placeholder="Priority" value={formData.priority} onChange={handleChange} >
-              {Array.from(priorities).map(priority => <option value={priority} >{priority}</option>)}
+              {Array.from(priorities).map(priority => <option value={priority} key={priority} >{priority}</option>)}
             </select>
           </label>
           <label className="flex items-center flex-none my-5 w-1/2 font-bold">
             <p className="w-1/6 text-end mr-5">Due Date</p>
-            <input className="w-full font-medium text-sky-700" datepicker="" name="dueDate" type="text" placeholder="Due date" value={formData.dueDate} onChange={handleChange} />
+            <Datepicker value={formData.dueDate} onChange={handleChange} />
+            {/* <input className="w-full font-medium text-sky-700" name="dueDate" type="date" placeholder="Due date" value={formData.dueDate} onChange={handleChange} /> */}
+            {/* <input id="datepicker" className="w-full font-medium text-sky-700" datepicker="" name="dueDate" type="date" placeholder="Due date" value={formData.dueDate} onChange={handleChange} /> */}
           </label>
 
           <button className="bg-sky-800 m-5 p-5 rounded-t-lg text-sky-400 cursor-pointer shadow-md shadow-sky-600 hover:relative hover:top-0.5 hover:left-0.5" type="submit">
