@@ -24,9 +24,9 @@ function ListItem({ task, onDelete }) {
   return (
     <>
       <Link to={`/edit-task/${task.id}`}>
-        <div className="card  cursor-pointer w-full rounded-2xl my-3 p-3 bg-indigo-900 border-2 border-indigo-600 flex flex-col" draggable="true" onDragStart={handleDragStart}>
-          <p className="text-lg font-extrabold">{task.title}</p>
-          <p className="text-base">{task.assignee}</p>
+        <div className="card-item cursor-pointer w-full rounded-2xl my-3 p-3 bg-indigo-900 border-2 border-indigo-600 flex flex-col" draggable="true" onDragStart={handleDragStart}>
+          <p className="task-title text-lg font-extrabold">{task.title}</p>
+          <p className="task-assignee text-base">{task.assignee}</p>
           <div className="flex gap-2 items-center justify-between p-2">
             <div className={`flex gap-2 items-center justify-between font-semibold ${daysToDueDate < 0 ? "text-amber-500" : "text-white"  }`}>
               <svg className={`w-[18px] h-[18px] text-gray-800 ${daysToDueDate < 0 ? "text-yellow-500" : "text-white"  }`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
