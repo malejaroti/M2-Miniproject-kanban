@@ -24,7 +24,7 @@ function Column({ columnName, children, allTasks, setAllTasks }) {
     }
 
     setAllTasks((allTasksState) =>
-      allTasksState.map((eachTask, index) => {
+      allTasksState.map((eachTask) => {
         return eachTask.id === idTaskDragged ? taskDragged : eachTask;
       })
     );
