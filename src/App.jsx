@@ -16,14 +16,9 @@ import EditValues from "./pages/EditValues";
 
 function App() {
   const [allTasks, setAllTasks] = useState(tasks);
-  const [assignees, setAssignees] = useState(new Set(allTasks.map(task => task.assignee)));
-  const [priorities, setPriorities] = useState(new Set(allTasks.map(task => task.priority)));
-  const [statuses, setStatuses] = useState(new Set(allTasks.map(task => task.status)));
-
-  const deleteTask = (id) => {
-    const taskIndexToDelete = allTasks.findIndex(task => task.id === id);
-    setAllTasks(allTasks.toSpliced(taskIndexToDelete, 1));
-  }
+  const [assignees, setAssignees] = useState(new Set(allTasks.map((task) => task.assignee)));
+  const [priorities, setPriorities] = useState(new Set(allTasks.map((task) => task.priority)));
+  const [statuses, setStatuses] = useState(new Set(allTasks.map((task) => task.status)));
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -32,7 +27,7 @@ function App() {
         <Sidebar />
         <div className="inner-page bg-neutral-900 p-5 w-full min-h-0">
           <Routes>
-            <Route path="/" element={<Dashboard allTasks={allTasks} setAllTasks={setAllTasks} deleteTask={deleteTask} />} />
+            <Route path="/" element={<Dashboard allTasks={allTasks} setAllTasks={setAllTasks} />} />
             <Route path="/about" element={<About />} />
             <Route path="/task-details/:task-id" element={<TaskDetails />} />
             <Route path="/add-task" element={<AddTask allTasks={allTasks} setAllTasks={setAllTasks} assignees={assignees} priorities={priorities} statuses={statuses} />} />

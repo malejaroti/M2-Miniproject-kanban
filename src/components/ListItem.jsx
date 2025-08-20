@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-function ListItem({ task, onDelete }) {
+function ListItem({ task, onDelete, getIdTaskDragged }) {
   const [draggedElement, setDraggedElement] = useState(null);
   const handleDragStart = (event) => {
-    event.dataTransfer.setData("text/plain", task.id);
-    event.dataTransfer.effectAllowed = "move";
     setDraggedElement(task.id);
+    getIdTaskDragged(task.id);
   };
   // setDraggedElement(null); //todo understand what this is for? and if I had to use it for some reason
   const daysToDueDate = Math.round((new Date(task.dueDate) - new Date()) / (24 * 60 * 60 * 1000));
@@ -24,8 +23,8 @@ function ListItem({ task, onDelete }) {
           <p className="task-title text-lg font-extrabold">{task.title}</p>
           <p className="task-assignee text-base">{task.assignee}</p>
           <div className="flex gap-2 items-center justify-between p-2">
-            <div className={`flex gap-2 items-center justify-between font-semibold ${daysToDueDate < 0 ? "text-amber-500" : "text-white"  }`}>
-              <svg className={`w-[18px] h-[18px] text-gray-800 ${daysToDueDate < 0 ? "text-yellow-500" : "text-white"  }`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <div className={`flex gap-2 items-center justify-between font-semibold ${daysToDueDate < 0 ? "text-amber-500" : "text-white"}`}>
+              <svg className={`w-[18px] h-[18px] text-gray-800 ${daysToDueDate < 0 ? "text-yellow-500" : "text-white"}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fillRule="evenodd" d="M6 5V4a1 1 0 1 1 2 0v1h3V4a1 1 0 1 1 2 0v1h3V4a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v2H3V7a2 2 0 0 1 2-2h1ZM3 19v-8h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm5-6a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8Z" clipRule="evenodd" />
               </svg>
               <p>{daysToDueDate < 0 ? `${-daysToDueDate} days overdue` : `${daysToDueDate} days left`}</p>

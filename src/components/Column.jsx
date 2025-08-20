@@ -1,4 +1,4 @@
-function Column({ columnName, children, allTasks, setAllTasks }) {
+function Column({ columnName, children, allTasks, setAllTasks, onDroppedInColumn }) {
   const handleDragOver = (event) => {
     event.preventDefault(); //allow drop
   };
@@ -6,10 +6,9 @@ function Column({ columnName, children, allTasks, setAllTasks }) {
     event.preventDefault(); //allow drop
     let nameColumnDropped = event.currentTarget.id; // another option would have been to use event.currentTarget.dataset.columnName
     console.log("Dropped on column with id: ", nameColumnDropped);
+    let idTaskDraggedReceived = onDroppedInColumn();
 
-    // event.dataTransfer.setData("text/plain", nameColumnDropped); //todo: Understand if it was possible to instead send the Column name ListItem
-
-    let idTaskDragged = event.dataTransfer.getData("text/plain");
+    let idTaskDragged = idTaskDraggedReceived;
 
     // Find the task in allTasks
     let taskDragged = allTasks.find((task) => task.id === idTaskDragged);
